@@ -19,7 +19,7 @@ function MentionsLegales() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Informations légales</h2>
             <p className="mb-4">
-              Le site web [Nom du site] est édité par [Votre nom ou raison sociale], [statut juridique], immatriculé au RCS de [ville] sous le numéro [numéro RCS].
+              Le site web https://coolbrizz.github.io/MonPortfolio est édité par TonyWebDev .
             </p>
             <p className="mb-4">
               <strong>Siège social :</strong> [Adresse complète]<br />
@@ -27,28 +27,28 @@ function MentionsLegales() {
               <strong>Email :</strong> antony.auvray@hotmail.com
             </p>
             <p className="mb-4">
-              <strong>Directeur de la publication :</strong> [Nom du directeur de publication]
+              <strong>Directeur de la publication :</strong> Auvray Antony
             </p>
           </section>
           
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Hébergement</h2>
             <p className="mb-4">
-              Ce site est hébergé par [Nom de l'hébergeur], [statut juridique], dont le siège social est situé [adresse de l'hébergeur].
+              Ce site est hébergé par IONOS, dont le siège social est situé  7 Place de la Gare, 57200 Sarreguemines, France.
             </p>
             <p className="mb-4">
-              <strong>Téléphone :</strong> [Téléphone de l'hébergeur]<br />
-              <strong>Email :</strong> [Email de l'hébergeur]
+              <strong>Téléphone :</strong>0970 808 911<br />
+              <strong>Site Web:</strong> www.ionos.fr
             </p>
           </section>
           
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Propriété intellectuelle</h2>
             <p className="mb-4">
-              L'ensemble des éléments constituant ce site (textes, graphismes, logiciels, photographies, images, vidéos, sons, plans, logos, marques, etc.) est la propriété exclusive de [Votre nom ou raison sociale] ou fait l'objet d'une autorisation d'utilisation. Ces éléments sont protégés par les lois françaises et internationales relatives à la propriété intellectuelle.
+              L'ensemble des éléments constituant ce site (textes, graphismes, logiciels, photographies, images, vidéos, sons, plans, logos, marques, etc.) est la propriété exclusive de TonyWebDev ou fait l'objet d'une autorisation d'utilisation. Ces éléments sont protégés par les lois françaises et internationales relatives à la propriété intellectuelle.
             </p>
             <p className="mb-4">
-              Toute reproduction totale ou partielle de ce site ou d'un de ses éléments sans autorisation expresse et préalable de [Votre nom ou raison sociale] est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+              Toute reproduction totale ou partielle de ce site ou d'un de ses éléments sans autorisation expresse et préalable de TonyWebDev est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
             </p>
           </section>
           
@@ -58,7 +58,7 @@ function MentionsLegales() {
               Conformément à la loi Informatique et Libertés du 6 janvier 1978 modifiée, et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité des données vous concernant.
             </p>
             <p className="mb-4">
-              Pour exercer ces droits ou pour toute question sur le traitement de vos données, vous pouvez contacter [Votre nom ou raison sociale] par email à l'adresse suivante : antony.auvray@hotmail.com.
+              Pour exercer ces droits ou pour toute question sur le traitement de vos données, vous pouvez contacter TonyWebDev par email à l'adresse suivante : antony.auvray@hotmail.com.
             </p>
             <p className="mb-4">
               Pour plus d'informations sur la façon dont nous traitons vos données, veuillez consulter notre Politique de Confidentialité.
@@ -68,24 +68,24 @@ function MentionsLegales() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Cookies</h2>
             <p className="mb-4">
-              Le site [Nom du site] peut utiliser des cookies pour améliorer l'expérience utilisateur. En naviguant sur ce site, vous acceptez l'utilisation de cookies conformément à notre Politique de Cookies.
+              Le site https://coolbrizz.github.io/MonPortfolio peut utiliser des cookies pour améliorer l'expérience utilisateur. En naviguant sur ce site, vous acceptez l'utilisation de cookies conformément à notre Politique de Cookies.
             </p>
           </section>
           
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Limitation de responsabilité</h2>
             <p className="mb-4">
-              [Votre nom ou raison sociale] s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations diffusées sur ce site, dont elle se réserve le droit de corriger, à tout moment et sans préavis, le contenu.
+            TonyWebDev s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations diffusées sur ce site, dont elle se réserve le droit de corriger, à tout moment et sans préavis, le contenu.
             </p>
             <p className="mb-4">
-              [Votre nom ou raison sociale] ne peut toutefois garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site. En conséquence, [Votre nom ou raison sociale] décline toute responsabilité pour tout dommage résultant notamment d'une imprécision ou inexactitude des informations disponibles sur ce site.
+              TonyWebDev ne peut toutefois garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site. En conséquence, TonyWebDev décline toute responsabilité pour tout dommage résultant notamment d'une imprécision ou inexactitude des informations disponibles sur ce site.
             </p>
           </section>
           
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Liens hypertextes</h2>
             <p className="mb-4">
-              Ce site peut contenir des liens vers d'autres sites internet ou d'autres ressources disponibles sur Internet. [Votre nom ou raison sociale] n'a pas la possibilité de vérifier le contenu des sites ainsi visités, et n'assumera en conséquence aucune responsabilité de ce fait.
+              Ce site peut contenir des liens vers d'autres sites internet ou d'autres ressources disponibles sur Internet.TonyWebDev n'a pas la possibilité de vérifier le contenu des sites ainsi visités, et n'assumera en conséquence aucune responsabilité de ce fait.
             </p>
           </section>
           
@@ -95,7 +95,7 @@ function MentionsLegales() {
               Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
             </p>
             <p className="mb-4">
-              Ces mentions légales ont été mises à jour le [date de mise à jour].
+              Ces mentions légales ont été mises à jour le 28/02/2025.
             </p>
           </section>
         </div>
