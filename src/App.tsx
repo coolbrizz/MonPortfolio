@@ -168,7 +168,7 @@ function App() {
     <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
       {/* Image du portrait */}
       <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden  shadow-lg">
-        <img src="portrait.webp" alt="Portrait" className="w-full h-full object-cover" />
+        <img src="portrait.png" alt="Portrait" className="w-full h-full object-cover" />
       </div>
 
       {/* Contenu texte */}
