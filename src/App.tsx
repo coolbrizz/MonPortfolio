@@ -1,9 +1,78 @@
-import { Menu, X, Code, Search, Settings } from 'lucide-react';
-import { useState } from 'react';
+import React from 'react';
+import { Menu, X, Code, Search, Settings} from 'lucide-react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // Remplacez ces valeurs par vos identifiants EmailJS
+    const serviceId = 'service_9ipa099';
+    const templateId = 'template_d3ox5wj';
+    const publicKey = '5p-L60ZhNXWrvaIwj';
+
+    // Préparation des paramètres pour le template EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, {
+      publicKey: publicKey,
+    })
+      .then(() => {
+        setSubmitStatus({
+          success: true,
+          message: 'Votre message a été envoyé avec succès!'
+        });
+        // Réinitialisation du formulaire
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      })
+      .catch((error) => {
+        console.error('Erreur lors de l\'envoi du message:', error);
+        setSubmitStatus({
+          success: false,
+          message: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.'
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
+ 
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -67,7 +136,7 @@ function App() {
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-4">
             <h2 className="text-6xl font-bold text-customBlue2 mb-4">Mes Services</h2>
             <p className="text-xl text-customBlue">Des solutions complètes pour votre présence numérique</p>
           </div>
@@ -93,11 +162,26 @@ function App() {
           </div>
         </div>
       </section>
+    {/* Presentation section */}
+    <section id='presentation' className='py-20 bg-customBlue3'>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div className="flex-column">
+  <h3 className=''>Qui suis-je</h3>
+  <p>Après 15 ans d’expérience dans l’aéronautique et 10 ans de service dans l'armée, j’ai décidé de donner un nouveau cap à ma carrière en me lançant dans ma passion : le développement web.
+
+Autodidacte dans l’âme, j’ai complété ma formation par un parcours spécialisé en développement web et web mobile pour maîtriser les technologies les plus modernes. Aujourd’hui, j’accompagne entreprises et entrepreneurs dans la création de solutions digitales performantes et adaptées à leurs besoins.
+
+Ma rigueur, mon sens du détail et ma capacité à résoudre des problèmes complexes sont des atouts que j’apporte à chaque projet. Que ce soit pour un site vitrine, un e-commerce ou une application web, je mets un point d’honneur à concevoir des expériences numériques optimisées, accessibles et engageantes.
+
+🚀 Prêt à concrétiser votre projet digital ? Parlons-en dès maintenant !</p>
+</div>
+    </div>
+    </section>
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-4">
             <h2 className="text-6xl font-bold text-customBlue2 mb-4">Réalisations</h2>
             <p className="text-xl text-customBlue">Découvrez mes derniers projets</p>
           </div>
@@ -122,44 +206,65 @@ function App() {
             />
           </div>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-customBlue3">
+      </section>     
+ {/* Contact Section */}
+ <section id="contact" className="py-20 bg-customBlue3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-6xl font-bold text-customBlue mb-4">Contact</h2>
             <p className="text-xl text-customBlue2">Discutons de votre projet</p>
           </div>
           <div className="max-w-3xl mx-auto">
-            <form className="space-y-6">
+            {submitStatus && (
+              <div className={`mb-6 p-4 rounded-lg ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                {submitStatus.message}
+              </div>
+            )}
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Nom"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Email"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
                 />
               </div>
               <input
                 type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
                 placeholder="Sujet"
+                required
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
               />
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 placeholder="Message"
+                required
                 rows={6}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
               ></textarea>
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-customBlue text-white rounded-lg hover:bg-customBlue2 transition"
+                disabled={isSubmitting}
+                className={`w-full px-8 py-4 bg-customBlue text-white rounded-lg hover:bg-customBlue2 transition'}`}
               >
-                Envoyer
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
               </button>
             </form>
           </div>
@@ -192,12 +297,15 @@ function App() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-customBlue3">
             <p>&copy; 2025 TonyWebDev. Tous droits réservés.</p>
+            <div className="mt-4 flex justify-center space-x-6">
+              <a href="/mentions-legales" className="text-gray-400 hover:text-white transition">Mentions Légales</a>
+            </div>
           </div>
         </div>
       </footer>
     </div>
   );
-}
+
 function ServiceCard({ icon, title, description, image2 }) {
   return (
     <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition group flex flex-col">
@@ -239,5 +347,6 @@ function PortfolioCard({ image, title, category, website }) {
   );
 }
 
+}
 
 export default App;
