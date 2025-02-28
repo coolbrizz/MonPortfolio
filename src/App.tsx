@@ -163,20 +163,38 @@ function App() {
         </div>
       </section>
     {/* Presentation section */}
-    <section id='presentation' className='py-20 bg-customBlue3'>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div className="flex-column">
-  <h3 className=''>Qui suis-je</h3>
-  <p>Après 15 ans d’expérience dans l’aéronautique et 10 ans de service dans l'armée, j’ai décidé de donner un nouveau cap à ma carrière en me lançant dans ma passion : le développement web.
+    <section id="presentation" className="py-20 bg-customBlue3">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
+      {/* Image du portrait */}
+      <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden  shadow-lg">
+        <img src="/portrait (2).png" alt="Portrait" className="w-full h-full object-cover" />
+      </div>
 
-Autodidacte dans l’âme, j’ai complété ma formation par un parcours spécialisé en développement web et web mobile pour maîtriser les technologies les plus modernes. Aujourd’hui, j’accompagne entreprises et entrepreneurs dans la création de solutions digitales performantes et adaptées à leurs besoins.
+      {/* Contenu texte */}
+      <div className="max-w-2xl text-customBlue">
+        <h3 className="text-3xl font-bold text-customBlue mb-4">Qui suis-je ?</h3>
+        <p className="text-lg leading-relaxed">
+          Après <span className="font-semibold">15 ans d’expérience dans l’aéronautique</span> et <span className="font-semibold">10 ans de service dans l'armée</span>,  
+          j’ai décidé de donner un nouveau cap à ma carrière en me lançant dans ma passion : <span className="text-customYellow font-semibold">le développement web</span>.
+        </p>
 
-Ma rigueur, mon sens du détail et ma capacité à résoudre des problèmes complexes sont des atouts que j’apporte à chaque projet. Que ce soit pour un site vitrine, un e-commerce ou une application web, je mets un point d’honneur à concevoir des expériences numériques optimisées, accessibles et engageantes.
+        <p className="mt-4">
+          Autodidacte dans l’âme, j’ai suivi une formation spécialisée en développement web et web mobile afin de maîtriser les technologies modernes.
+          Aujourd’hui, j’accompagne entreprises et entrepreneurs dans la <span className="font-semibold">création de solutions digitales performantes et adaptées</span>.
+        </p>
 
-🚀 Prêt à concrétiser votre projet digital ? Parlons-en dès maintenant !</p>
-</div>
+        <p className="mt-4">
+          Grâce à ma rigueur et mon sens du détail, je conçois des expériences numériques optimisées, accessibles et engageantes.  
+          Que ce soit pour un <span className="font-semibold">site vitrine, un e-commerce ou une application web</span>, chaque projet est une opportunité d’innovation.
+        </p>
+
+        <p className="mt-6 text-xl font-semibold text-customYellow">🚀 Prêt à concrétiser votre projet digital ? Parlons-en dès maintenant !</p>
+      </div>
     </div>
-    </section>
+  </div>
+</section>
+
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-gray-50">
