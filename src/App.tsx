@@ -112,7 +112,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="bg-[url('/background.png')] bg-cover bg-center min-h-screen flex justify-center">
+      <section id="home" className="bg-[url('/background.webp')] bg-cover bg-center min-h-screen flex justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="text-center px-4">
             <h1 className="text-5xl font-inter pt-16  md:text-6xl  font-bold text-customBlue2 mb-8">
@@ -145,19 +145,19 @@ function App() {
               icon={<Code />}
               title="Création de Sites Web"
               description="Sites vitrines, e-commerce et applications web sur mesure avec les dernières technologies."
-              image2="crea.png"
+              image2="crea.webp"
             />
             <ServiceCard 
               icon={<Search />}
               title="Optimisation SEO"
               description="Amélioration du référencement naturel pour une meilleure visibilité sur les moteurs de recherche."
-              image2="seo.png"
+              image2="seo.webp"
             />
             <ServiceCard 
               icon={<Settings />}
               title="Maintenance"
               description="Suivi régulier, mises à jour et optimisations pour garantir la performance de votre site."
-              image2="maintenance.png"
+              image2="maintenance.webp"
             />
           </div>
         </div>
@@ -168,7 +168,7 @@ function App() {
     <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
       {/* Image du portrait */}
       <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden  shadow-lg">
-        <img src="portrait.png" alt="Portrait" className="w-full h-full object-cover" />
+        <img src="portrait.webp" alt="Portrait" className="w-full h-full object-cover" />
       </div>
 
       {/* Contenu texte */}
@@ -205,19 +205,19 @@ function App() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <PortfolioCard 
-              image="fleurs_story.png"
+              image="fleurs_story.webp"
               title="Boutique de fleuriste"
               category="Site vitrine"
               website= "https://fleurs-story.fr/"
             />
             <PortfolioCard 
-              image="portfolio.png"
+              image="portfolio.webp"
               title="Portfolio"
               category="Application Web"
               website="https://google.fr"
             />
             <PortfolioCard 
-              image="nailsiana.png"
+              image="nailsiana.webp"
               title="Salon de manucure"
               category="Site vitrine"
                website= "https://nailsiana.com/"
