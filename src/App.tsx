@@ -79,7 +79,7 @@ function App() {
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="text-4xl flex flex-row font-bold text-customBlue"><img className="w-12 h-12" src="/logo-removebg-preview.png"></img>TonyWebDev</div>
+            <div className="text-4xl flex flex-row font-bold text-customBlue"><img className="w-12 h-12" src="/logo-removebg-preview.png" alt='logo de tonyWebDev'></img>TonyWebDev</div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -168,7 +168,7 @@ function App() {
     <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
       {/* Image du portrait */}
       <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden  shadow-lg">
-        <img src="/portrait (2).png" alt="Portrait" className="w-full h-full object-cover" />
+        <img src="/portrait.png" alt="Portrait" className="w-full h-full object-cover" />
       </div>
 
       {/* Contenu texte */}
