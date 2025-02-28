@@ -309,7 +309,7 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">Suivez-moi</h3>
               <div className="flex space-x-4">
-                <a href="#" className="text-customBlue3 hover:text-white">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/antony-auvray-669bb6353/" className="text-customBlue3 hover:text-white">LinkedIn</a>
               </div>
             </div>
           </div>
