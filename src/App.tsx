@@ -115,13 +115,13 @@ function App() {
       <section id="home" className="bg-[url('/background.webp')] bg-cover bg-center min-h-screen flex justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="text-center px-4">
-            <h1 className="text-5xl font-inter pt-16  md:text-6xl  font-bold text-customBlue2 mb-8">
+            <h1 className="text-5xl font-inter pt-16  md:text-6xl  font-bold text-customBlue2 mb-8 max-sm:pt-2">
               Créateur de Solutions Digitales
             </h1>
-            <p className="text-xl text-customBlue max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-customBlue max-w-3xl mx-auto mb-12 ">
               Développeur web, SEO et solutions numériques sur mesure pour donner vie à vos projets digitaux.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 max-sm:flex-col">
               <a href="#contact" className="px-8 py-4 bg-customBlue text-white rounded-lg hover:bg-customBlue2 transition">
                 Démarrer un Projet
               </a>
