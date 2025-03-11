@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, X, Code, Search, Settings} from 'lucide-react';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import saintChamas from './site_saint_chamas.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -203,7 +204,8 @@ function App() {
             <h2 className="text-6xl font-bold text-customBlue2 mb-4">Réalisations</h2>
             <p className="text-xl text-customBlue">Découvrez mes derniers projets</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex justify-center items-center ">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 max-w-4xl  gap-8">
             <PortfolioCard 
               image="fleurs_story.webp"
               title="Boutique de fleuriste"
@@ -214,7 +216,7 @@ function App() {
               image="portfolio.webp"
               title="Portfolio"
               category="Application Web"
-              website="https://google.fr"
+              website="https://coolbrizz.github.io/MonPortfolio/"
             />
             <PortfolioCard 
               image="nailsiana.webp"
@@ -222,6 +224,13 @@ function App() {
               category="Site vitrine"
                website= "https://nailsiana.com/"
             />
+            <PortfolioCard 
+              image={saintChamas}
+              title="Présentation d'une ville"
+              category="Site vitrine"
+              website= "https://saintcham.netlify.app/"
+            />
+          </div>
           </div>
         </div>
       </section>     
