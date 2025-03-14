@@ -227,7 +227,7 @@ function App() {
             <PortfolioCard 
               image={saintChamas}
               title="Présentation d'une ville"
-              category="Site vitrine"
+              category="Site vitrine (pour un concours)"
               website= "https://saintcham.netlify.app/"
             />
           </div>
