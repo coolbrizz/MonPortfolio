@@ -82,10 +82,10 @@ function App() {
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="text-4xl flex flex-row font-bold text-customBlue">
+            <div className="text-4xl flex flex-row font-bold text-customBlue items-center">
               <img
-                className="w-12 h-12"
-                src="logo-removebg-preview.png"
+                className="w-[130px] h-[130px]"
+                src="3dgifmaker15243.gif"
                 alt="logo de tonyWebDev"
               ></img>
               TonyWebDev
@@ -404,7 +404,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-customBlue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid text-center md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Portfolio</h3>
               <p className="text-customBlue3">
@@ -415,17 +415,25 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">Contact</h3>
               <p className="text-customBlue3">
-                Email: antony.auvray@hotmail.com
+                <a
+                  href="mailto:antony.auvray@hotmail.com"
+                  className="text-customBlue3 hover:text-white "
+                >
+                  Email: antony.auvray@hotmail.com
+                </a>
                 <br />
-                Tél: 06.58.09.28.35
+                <br />
+                <a className="mt-2" href="https://wa.me/33658092835">
+                  Envoyer un message WhatsApp 📨
+                </a>
               </p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Suivez-moi</h3>
-              <div className="flex space-x-4">
+              <div className="flex justify-center space-x-4">
                 <a
                   href="https://www.linkedin.com/in/antony-auvray-669bb6353/"
-                  className="text-customBlue3 hover:text-white"
+                  className="text-customBlue3 hover:text-white "
                 >
                   LinkedIn
                 </a>
