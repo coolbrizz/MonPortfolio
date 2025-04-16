@@ -33,7 +33,7 @@ function App() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Remplacez ces valeurs par vos identifiants EmailJS
+    //identifiants EmailJS
     const serviceId = "service_9ipa099";
     const templateId = "template_d3ox5wj";
     const publicKey = "5p-L60ZhNXWrvaIwj";
@@ -123,7 +123,7 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700"
+                className="text-gray-700 mt-4"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -174,7 +174,7 @@ function App() {
             <h1 className="text-5xl font-inter pt-16  md:text-6xl  font-bold text-customBlue2 mb-8 max-sm:pt-2">
               Créateur de Solutions Digitales
             </h1>
-            <p className="text-xl text-customBlue max-sm:text-black max-w-3xl mx-auto mb-12 ">
+            <p className="text-xl text-customBlue max-sm:hidden max-w-3xl mx-auto mb-12 ">
               Développeur web, SEO et solutions numériques sur mesure pour
               donner vie à vos projets digitaux.
             </p>
@@ -487,7 +487,7 @@ function App() {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
             <div>
-              <p className="text-sm text-customBlue2 mb-1">{category}</p>
+              <p className="text-sm text-customBlue3 mb-1">{category}</p>
               <h3 className="text-xl font-bold text-customBlue3">{title}</h3>
             </div>
           </div>
