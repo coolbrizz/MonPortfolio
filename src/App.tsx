@@ -1,7 +1,8 @@
 import React from "react";
 import { Menu, X, Code, Search, Settings } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import Popup from "./components/Popup"
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +29,28 @@ function App() {
     }));
   };
 
+
+
+useEffect(() => {
+  const handler = () => {
+    const savedSubject = localStorage.getItem("contactSubject");
+    if (savedSubject) {
+      setFormData((prev) => ({
+        ...prev,
+        subject: savedSubject,
+      }));
+      localStorage.removeItem("contactSubject");
+    }
+  };
+
+  window.addEventListener("update-subject-from-popup", handler);
+
+  return () => {
+    window.removeEventListener("update-subject-from-popup", handler);
+  };
+}, []);
+
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -77,7 +100,9 @@ function App() {
   };
 
   return (
+    
     <div className="min-h-screen bg-white">
+      <Popup />
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -371,15 +396,16 @@ function App() {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
                 />
               </div>
-              <input
-                type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                placeholder="Sujet"
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
-              />
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className="border rounded px-4 py-3 w-full"
+                  placeholder="Sujet"
+                  required
+                />
               <textarea
                 name="message"
                 value={formData.message}
