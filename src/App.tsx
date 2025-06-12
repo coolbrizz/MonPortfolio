@@ -2,7 +2,21 @@ import React from "react";
 import { Menu, X, Code, Search, Settings } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import Popup from "./components/Popup"
+import Popup from "./components/Popup";
+
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  image2: string;
+}
+
+interface PortfolioCardProps {
+  image: string;
+  title: string;
+  category: string;
+  website: string;
+}
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,28 +43,25 @@ function App() {
     }));
   };
 
+  useEffect(() => {
+    const handler = () => {
+      const savedSubject = localStorage.getItem("contactSubject");
+      if (savedSubject) {
+        setFormData((prev) => ({
+          ...prev,
+          subject: savedSubject,
+        }));
+        localStorage.removeItem("contactSubject");
+      }
+    };
 
+    window.addEventListener("update-subject-from-popup", handler);
 
-useEffect(() => {
-  const handler = () => {
-    const savedSubject = localStorage.getItem("contactSubject");
-    if (savedSubject) {
-      setFormData((prev) => ({
-        ...prev,
-        subject: savedSubject,
-      }));
-      localStorage.removeItem("contactSubject");
-    }
-  };
+    return () => {
+      window.removeEventListener("update-subject-from-popup", handler);
+    };
+  }, []);
 
-  window.addEventListener("update-subject-from-popup", handler);
-
-  return () => {
-    window.removeEventListener("update-subject-from-popup", handler);
-  };
-}, []);
-
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -100,7 +111,6 @@ useEffect(() => {
   };
 
   return (
-    
     <div className="min-h-screen bg-white">
       <Popup />
       {/* Navigation */}
@@ -275,13 +285,13 @@ useEffect(() => {
               <p className="text-lg leading-relaxed">
                 Après{" "}
                 <span className="font-semibold">
-                  15 ans d’expérience dans l’aéronautique
+                  15 ans d'expérience dans l'aéronautique
                 </span>{" "}
                 et{" "}
                 <span className="font-semibold">
                   10 ans de service dans l'armée
                 </span>
-                , j’ai décidé de donner un nouveau cap à ma carrière en me
+                , j'ai décidé de donner un nouveau cap à ma carrière en me
                 lançant dans ma passion :{" "}
                 <span className="text-customYellow font-semibold">
                   le développement web
@@ -290,9 +300,9 @@ useEffect(() => {
               </p>
 
               <p className="mt-4">
-                Autodidacte dans l’âme, j’ai suivi une formation spécialisée en
+                Autodidacte dans l'âme, j'ai suivi une formation spécialisée en
                 développement web et web mobile afin de maîtriser les
-                technologies modernes. Aujourd’hui, j’accompagne entreprises et
+                technologies modernes. Aujourd'hui, j'accompagne entreprises et
                 entrepreneurs dans la{" "}
                 <span className="font-semibold">
                   création de solutions digitales performantes et adaptées
@@ -307,7 +317,7 @@ useEffect(() => {
                 <span className="font-semibold">
                   site vitrine, un e-commerce ou une application web
                 </span>
-                , chaque projet est une opportunité d’innovation.
+                , chaque projet est une opportunité d'innovation.
               </p>
 
               <p className="mt-6 text-xl font-semibold text-customYellow">
@@ -396,16 +406,16 @@ useEffect(() => {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
                 />
               </div>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="border rounded px-4 py-3 w-full"
-                  placeholder="Sujet"
-                  required
-                />
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                value={formData.subject}
+                onChange={handleInputChange}
+                className="border rounded px-4 py-3 w-full"
+                placeholder="Sujet"
+                required
+              />
               <textarea
                 name="message"
                 value={formData.message}
@@ -482,7 +492,7 @@ useEffect(() => {
     </div>
   );
 
-  function ServiceCard({ icon, title, description, image2 }) {
+  function ServiceCard({ icon, title, description, image2 }: ServiceCardProps) {
     return (
       <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition group flex flex-col">
         <div className="p-6 flex-1">
@@ -501,7 +511,12 @@ useEffect(() => {
     );
   }
 
-  function PortfolioCard({ image, title, category, website }) {
+  function PortfolioCard({
+    image,
+    title,
+    category,
+    website,
+  }: PortfolioCardProps) {
     return (
       <div className="group relative overflow-hidden rounded-xl">
         <a href={website} target="_blank" rel="noopener noreferrer">
