@@ -6,7 +6,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply text-customBlue antialiased;
   }
@@ -16,7 +16,7 @@
   .btn {
     @apply px-6 py-2 rounded-lg transition-all duration-200;
   }
-  
+
   .btn-primary {
     @apply bg-customBlue text-white hover:bg-customBlue2;
   }
@@ -26,4 +26,77 @@
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
+}
+.aws-btn {
+  --button-primary-color: #37717e !important;
+  --button-primary-color-dark: #2a5a66 !important;
+  --button-primary-color-light: #4a8a9a !important;
+  --button-primary-color-hover: #61a2a3 !important;
+  --button-default-border-radius: 8px !important;
+  --button-raise-level: 4px !important;
+  --button-hover-pressure: 2 !important;
+  --transform-speed: 0.25s !important;
+  --button-default-height: 48px !important;
+  --button-default-font-size: 17px !important;
+  --button-horizontal-padding: 42px !important;
+  --button-primary-border: 1px solid #ffffff !important;
+}
+
+/* Animation shine pour le bouton */
+.aws-btn:hover {
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 25px rgba(55, 113, 126, 0.8); */
+}
+
+/* Styles pour boutons normaux */
+.aws-btn {
+  background: linear-gradient(135deg, #37717e 0%, #61a2a3 100%) !important;
+  border-radius: 8px !important;
+  font-size: 17px !important;
+  font-weight: 200 !important;
+  padding: 12px 42px !important;
+  border: 1px solid #ffffff !important;
+  transition: all 0.25s ease !important;
+  color: white !important;
+  cursor: pointer !important;
+}
+
+.aws-btn:hover {
+  background: linear-gradient(135deg, #2a5a66 0%, #4a8a9a 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px 8px rgba(55, 113, 126, 0.8) !important;
+}
+/* Bouton 2 */
+.aws-btn2 {
+  --button-primary-color: #61a2a3 !important;
+  --button-primary-color-dark: #4a8a9a !important;
+  --button-primary-color-light: #2a5a66 !important;
+  --button-primary-color-hover: #37717e !important;
+  --button-default-border-radius: 8px !important;
+  --button-raise-level: 4px !important;
+  --button-hover-pressure: 2 !important;
+}
+/* Animation shine pour le bouton */
+.aws-btn2:hover {
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 25px rgba(97, 162, 163, 0.8); */
+}
+
+/* Styles pour le deuxième bouton */
+.aws-btn2 {
+  background: linear-gradient(135deg, #61a2a3 0%, #37717e 100%) !important;
+  border-radius: 8px !important;
+  font-size: 17px !important;
+  font-weight: 200 !important;
+  padding: 12px 42px !important;
+  border: 1px solid #ffffff !important;
+  transition: all 0.25s ease !important;
+  color: white !important;
+  cursor: pointer !important;
+}
+
+.aws-btn2:hover {
+  background: linear-gradient(135deg, #4a8a9a 0%, #2a5a66 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px 8px rgba(97, 162, 163, 0.8) !important;
 }

@@ -10,7 +10,6 @@ interface ServiceCardProps {
   description: string;
   image2: string;
 }
-
 interface PortfolioCardProps {
   image: string;
   title: string;
@@ -108,6 +107,36 @@ function App() {
       .finally(() => {
         setIsSubmitting(false);
       });
+  };
+  const ShinyText = ({
+    text,
+    disabled = false,
+    speed = 5,
+    className = "",
+  }: {
+    text: string;
+    disabled?: boolean;
+    speed?: number;
+    className?: string;
+  }) => {
+    const animationDuration = `${speed}s`;
+
+    return (
+      <div
+        className={` bg-clip-text text-[rgba(55,113,126,0.6)] inline-block ${
+          disabled ? "" : "animate-shine"
+        } ${className}`}
+        style={{
+          backgroundImage:
+            "linear-gradient(120deg, rgba(55,113,126,0) 40%, rgba(97,162,163,0.8) 50%, rgba(186,219,218,0) 60%)",
+          backgroundSize: "400% 100%",
+          WebkitBackgroundClip: "text",
+          animationDuration: animationDuration,
+        }}
+      >
+        {text}
+      </div>
+    );
   };
 
   return (
@@ -207,25 +236,41 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="text-center px-4">
             <h1 className="text-5xl font-inter pt-16  md:text-6xl  font-bold text-customBlue2 mb-8 max-sm:pt-2">
-              Créateur de Solutions Digitales
+              <ShinyText
+                text="Créateur de Site internet"
+                disabled={false}
+                speed={4}
+                className="custom-class"
+              />
             </h1>
             <p className="text-xl text-customBlue max-sm:hidden max-w-3xl mx-auto mb-12 ">
-              Développeur web, SEO et solutions numériques sur mesure pour
-              donner vie à vos projets digitaux.
+              Créons ensemble votre site internet ! En tant que freelance, je
+              vous propose des solutions simples, efficaces et adaptées à vos
+              besoins.
             </p>
             <div className="flex justify-center gap-4 max-sm:flex-col">
-              <a
-                href="#contact"
-                className="px-8 py-4 bg-customBlue text-white rounded-lg hover:bg-customBlue2 transition"
+              <button
+                onClick={() => {
+                  localStorage.setItem("contactSubject", "Demande de projet");
+                  window.dispatchEvent(new Event("update-subject-from-popup"));
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="aws-btn"
               >
-                Démarrer un Projet
-              </a>
-              <a
-                href="#portfolio"
-                className="px-8 py-4 bg-white text-customBlue rounded-lg border border-customBlue hover:bg-indigo-50 hover:text-customBlue2 transition"
+                🚀 Démarrer un Projet
+              </button>
+              <button
+                onClick={() => {
+                  document
+                    .getElementById("portfolio")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="aws-btn aws-btn2"
               >
-                Voir mes Réalisations
-              </a>
+                👀 Voir mes réalisations
+              </button>
             </div>
           </div>
         </div>
@@ -236,10 +281,15 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
             <h2 className="text-6xl font-bold text-customBlue2 mb-4">
-              Mes Services
+              <ShinyText
+                text="Mes Services"
+                disabled={false}
+                speed={4}
+                className="custom-class"
+              />
             </h2>
             <p className="text-xl text-customBlue">
-              Des solutions complètes pour votre présence numérique
+              Des solutions complètes pour votre visibilité en ligne
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -282,7 +332,7 @@ function App() {
               <h3 className="text-3xl font-bold text-customBlue mb-4">
                 Qui suis-je ?
               </h3>
-              <p className="text-lg leading-relaxed">
+              <p>
                 Après{" "}
                 <span className="font-semibold">
                   15 ans d'expérience dans l'aéronautique
@@ -320,7 +370,7 @@ function App() {
                 , chaque projet est une opportunité d'innovation.
               </p>
 
-              <p className="mt-6 text-xl font-semibold text-customYellow">
+              <p className="mt-6 text-lg font-semibold text-customYellow">
                 🚀 Prêt à concrétiser votre projet digital ? Parlons-en dès
                 maintenant !
               </p>
@@ -334,7 +384,12 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
             <h2 className="text-6xl font-bold text-customBlue2 mb-4">
-              Réalisations
+              <ShinyText
+                text="Mes Réalisations"
+                disabled={false}
+                speed={4}
+                className="custom-class"
+              />
             </h2>
             <p className="text-xl text-customBlue">
               Découvrez mes derniers projets
@@ -368,7 +423,14 @@ function App() {
       <section id="contact" className="py-20 bg-customBlue3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-6xl font-bold text-customBlue mb-4">Contact</h2>
+            <h2 className="text-6xl font-bold text-customBlue mb-4">
+              <ShinyText
+                text="Contact"
+                disabled={false}
+                speed={4}
+                className="custom-class"
+              />
+            </h2>
             <p className="text-xl text-customBlue2">
               Discutons de votre projet
             </p>
@@ -428,9 +490,9 @@ function App() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full px-8 py-4 bg-customBlue text-white rounded-lg hover:bg-customBlue2 transition'}`}
+                className="aws-btn w-full"
               >
-                {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+                {isSubmitting ? "Envoi en cours..." : "Envoyer  "}
               </button>
             </form>
           </div>
