@@ -1,3 +1,4 @@
 Construire le projet (génération des fichiers statiques) : npm run build Ajouter
 les fichiers générés au dépôt : git add . git commit -m "Mise à jour du site"
 git push origin main si utilisé déploiement avec : npm run deploy
+transférer avec filezilla le fichier dist

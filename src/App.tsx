@@ -145,11 +145,11 @@ function App() {
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="text-4xl flex flex-row font-bold text-customBlue items-center ">
+          <div className="flex justify-between h-16 items-center max-sm:h-32">
+            <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:flex-col max-sm:margin-auto max-sm:ml-8 max-sm:justify-center max-sm:items-center">
               <img
-                className="w-[130px] h-[130px] max-sm:hidden"
-                src="3dgifmaker15243.gif"
+                className="w-[80px] h-[80px] "
+                src="logosvg.svg"
                 alt="logo de tonyWebDev"
               ></img>
               TonyWebDev
@@ -201,25 +201,25 @@ function App() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-b">
               <a
                 href="#home"
-                className="block px-3 py-2 text-gray-700 hover:text-indigo-400"
+                className="block px-3 py-2 text-customBlue font-bold hover:text-indigo-400"
               >
                 Accueil
               </a>
               <a
                 href="#portfolio"
-                className="block px-3 py-2 text-gray-700 hover:text-indigo-400"
+                className="block px-3 py-2 text-customBlue font-bold hover:text-indigo-400"
               >
                 Portfolio
               </a>
               <a
                 href="#services"
-                className="block px-3 py-2 text-gray-700 hover:text-indigo-400"
+                className="block px-3 py-2 text-customBlue font-bold hover:text-indigo-400"
               >
                 Services
               </a>
               <a
                 href="#contact"
-                className="block px-3 py-2 text-gray-700 hover:text-indigo-400"
+                className="block px-3 py-2 text-customBlue font-bold hover:text-indigo-400"
               >
                 Contact
               </a>
@@ -431,9 +431,7 @@ function App() {
                 className="custom-class"
               />
             </h2>
-            <p className="text-xl text-customBlue2">
-              Discutons de votre projet
-            </p>
+            <p className="text-xl text-customBlue">Discutons de votre projet</p>
           </div>
           <div className="max-w-3xl mx-auto">
             {submitStatus && (
