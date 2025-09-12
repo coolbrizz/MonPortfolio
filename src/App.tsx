@@ -145,10 +145,10 @@ function App() {
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center max-sm:h-32">
-            <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:flex-col max-sm:margin-auto max-sm:ml-8 max-sm:justify-center max-sm:items-center">
+          <div className="flex justify-between h-16 items-center">
+            <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:text-2xl ">
               <img
-                className="w-[80px] h-[80px] "
+                className="w-[70px] h-[70px] max-sm:h-[40px] max-sm:w-[40px] "
                 src="logosvg.svg"
                 alt="logo de tonyWebDev"
               ></img>
