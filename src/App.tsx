@@ -148,8 +148,8 @@ function App() {
           <div className="flex justify-between h-16 items-center">
             <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:text-2xl ">
               <img
-                className="w-[70px] h-[70px] max-sm:h-[40px] max-sm:w-[40px] "
-                src="logosvg.svg"
+                className="w-[120px] h-[120px] mt-6 mr-[-24px]"
+                src="logo3.png"
                 alt="logo de tonyWebDev"
               ></img>
               TonyWebDev
@@ -231,7 +231,7 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="bg-[url('/background.webp')] bg-cover bg-center min-h-screen flex justify-center"
+        className="bg-[url('/background.svg')] bg-cover bg-center min-h-screen flex justify-center"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="text-center px-4">
@@ -375,6 +375,18 @@ function App() {
                 maintenant !
               </p>
             </div>
+          </div>
+          <div className="flex justify-end items-center m-auto ">
+            <a
+              href="#contact"
+              className="text-customBlue font-bold hover:text-customBlue2"
+            >
+              <img
+                className="w-[300px] h-[300px] mb-[-180px] mt-[-50px]"
+                src="logo3.png"
+                alt="logo de tonyWebDev"
+              ></img>
+            </a>
           </div>
         </div>
       </section>

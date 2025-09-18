@@ -27,10 +27,10 @@ function MentionsLegales() {
             <p className="mb-4">
               Le site web{" "}
               <Link
-                to="http://tonyWebDev.fr"
+                to="https://tonyWebDev.fr"
                 className="text-blue-500 hover:text-blue-700"
               >
-                http://tonyWebDev.fr
+                https://tonyWebDev.fr
               </Link>{" "}
               est édité par TonyWebDev .
             </p>
@@ -112,10 +112,10 @@ function MentionsLegales() {
             <p className="mb-4">
               Le site{" "}
               <Link
-                to="http://tonyWebDev.fr"
+                to="https://tonyWebDev.fr"
                 className="text-blue-500 hover:text-blue-700"
               >
-                http://tonyWebDev.fr
+                https://tonyWebDev.fr
               </Link>{" "}
               peut utiliser des cookies pour améliorer l'expérience utilisateur.
               En naviguant sur ce site, vous acceptez l'utilisation de cookies
