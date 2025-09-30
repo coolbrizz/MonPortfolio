@@ -149,7 +149,7 @@ function App() {
             <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:text-2xl ">
               <img
                 className="w-[120px] h-[120px] mt-6 mr-[-24px]"
-                src="logo3.png"
+                src="logo3svg.png"
                 alt="logo de tonyWebDev"
               ></img>
               TonyWebDev
