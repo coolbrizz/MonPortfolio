@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, X, Code, Search, Settings } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import Popup from "./components/Popup";
+// import Popup from "./components/Popup";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -141,14 +141,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Popup />
+      {/* <Popup /> */}
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="text-4xl flex flex-row font-bold text-customBlue items-center max-sm:text-2xl ">
               <img
-                className="w-[120px] h-[120px] mt-6 mr-[-24px]"
+                className="w-[60px] h-[60px]"
                 src="logo3svg.png"
                 alt="logo de tonyWebDev"
               ></img>
@@ -187,9 +187,16 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 mt-4"
+                className="text-gray-700 mt-4 p-2 hover:bg-gray-100 rounded-lg"
+                aria-expanded={isMenuOpen}
+                aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? (
+                  <X size={24} aria-hidden="true" />
+                ) : (
+                  <Menu size={24} aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
@@ -231,7 +238,7 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="bg-[url('/background.svg')] bg-cover bg-center min-h-screen flex justify-center"
+        className="bg-[url('/background_reduit.webp')] bg-cover bg-center min-h-screen flex justify-center"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="text-center px-4">
@@ -382,8 +389,8 @@ function App() {
               className="text-customBlue font-bold hover:text-customBlue2"
             >
               <img
-                className="w-[300px] h-[300px] mb-[-180px] mt-[-50px]"
-                src="logo3.png"
+                className="w-[100px] h-[100px] mb-[-180px] mt-[-30px]"
+                src="logo3svg.png"
                 alt="logo de tonyWebDev"
               ></img>
             </a>
@@ -419,7 +426,7 @@ function App() {
                 image="portfolio.webp"
                 title="Portfolio"
                 category="Application Web"
-                website="https://coolbrizz.github.io/MonPortfolio/"
+                website="https://tonywebdev.fr/"
               />
               <PortfolioCard
                 image="nailsiana.webp"
@@ -514,26 +521,39 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid text-center md:grid-cols-3 gap-8">
             <div>
+              <h3 className="text-xl font-bold mb-4">Contact</h3>
+              <p className="text-customBlue3">
+                <a
+                  href="mailto:antony.auvray@hotmail.com"
+                  className="text-customBlue3 hover:text-white  text-bottom"
+                >
+                  antony.auvray@hotmail.com
+                  <img
+                    src="mail.png"
+                    alt="Email"
+                    className="w-8 h-8 ml-4 inline-block"
+                  />{" "}
+                </a>
+                <br />
+                <br />
+                <a className="mt-2" href="https://wa.me/33658092835">
+                  Envoyer un message WhatsApp{" "}
+                  <img
+                    src="whatsapp2.png"
+                    alt="whatsapp"
+                    className="w-10 h-10 inline-block"
+                  />
+                </a>
+              </p>
+            </div>
+            <div>
               <h3 className="text-xl font-bold mb-4">Portfolio</h3>
               <p className="text-customBlue3">
                 Création de solutions digitales sur mesure pour votre succès en
                 ligne.
               </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contact</h3>
               <p className="text-customBlue3">
-                <a
-                  href="mailto:antony.auvray@hotmail.com"
-                  className="text-customBlue3 hover:text-white "
-                >
-                  Email: antony.auvray@hotmail.com
-                </a>
-                <br />
-                <br />
-                <a className="mt-2" href="https://wa.me/33658092835">
-                  Envoyer un message WhatsApp 📨
-                </a>
+                Accompagnement personnalisé pour embellir votre projet.
               </p>
             </div>
             <div>
@@ -543,7 +563,21 @@ function App() {
                   href="https://www.linkedin.com/in/antony-auvray-669bb6353/"
                   className="text-customBlue3 hover:text-white "
                 >
-                  LinkedIn
+                  <img
+                    src="linkedin.png"
+                    alt="LinkedIn"
+                    className="w-[120px] h-[50px] rounded-md mx-auto"
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/tonywebdev"
+                  className="text-customBlue3 hover:text-white "
+                >
+                  <img
+                    src="facebook.png"
+                    alt="Facebook"
+                    className="w-[60px] h-[50px] "
+                  />
                 </a>
               </div>
             </div>
