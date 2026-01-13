@@ -1,7 +1,10 @@
 import React from "react";
 import { Menu, X, Code, Search, Settings } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
+import Tarifs from "./tarifs";
+import Footer from "./components/footer";
+// import FaqPopup from "./Faq";
+import Chatbot from "./chatbot";
 // import Popup from "./components/Popup";
 
 interface ServiceCardProps {
@@ -19,95 +22,6 @@ interface PortfolioCardProps {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  useEffect(() => {
-    const handler = () => {
-      const savedSubject = localStorage.getItem("contactSubject");
-      if (savedSubject) {
-        setFormData((prev) => ({
-          ...prev,
-          subject: savedSubject,
-        }));
-        localStorage.removeItem("contactSubject");
-      }
-    };
-
-    window.addEventListener("update-subject-from-popup", handler);
-
-    return () => {
-      window.removeEventListener("update-subject-from-popup", handler);
-    };
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    //identifiants EmailJS
-    const serviceId = "service_9ipa099";
-    const templateId = "template_d3ox5wj";
-    const publicKey = "5p-L60ZhNXWrvaIwj";
-
-    // Préparation des paramètres pour le template EmailJS
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
-
-    emailjs
-      .send(serviceId, templateId, templateParams, {
-        publicKey: publicKey,
-      })
-      .then(() => {
-        setSubmitStatus({
-          success: true,
-          message: "Votre message a été envoyé avec succès!",
-        });
-        // Réinitialisation du formulaire
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.error("Erreur lors de l'envoi du message:", error);
-        setSubmitStatus({
-          success: false,
-          message:
-            "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
-        });
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
-  };
   const ShinyText = ({
     text,
     disabled = false,
@@ -141,7 +55,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* <Popup /> */}
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -176,7 +89,7 @@ function App() {
                 Services
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="text-customBlue font-bold hover:text-customBlue2"
               >
                 Contact
@@ -187,7 +100,7 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 mt-4 p-2 hover:bg-gray-100 rounded-lg"
+                className="text-gray-700 p-2 hover:bg-gray-100 rounded-lg"
                 aria-expanded={isMenuOpen}
                 aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
                 aria-controls="mobile-menu"
@@ -225,7 +138,7 @@ function App() {
                 Services
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="block px-3 py-2 text-customBlue font-bold hover:text-indigo-400"
               >
                 Contact
@@ -251,18 +164,16 @@ function App() {
               />
             </h1>
             <p className="text-xl text-customBlue max-sm:hidden max-w-3xl mx-auto mb-12 ">
-              Créons ensemble votre site internet ! En tant que freelance, je
-              vous propose des solutions simples, efficaces et adaptées à vos
-              besoins.
+              Créons ensemble votre site internet ! Offrez à votre entreprise
+              une présence en ligne claire, moderne et efficace.
             </p>
+
             <div className="flex justify-center gap-4 max-sm:flex-col">
               <button
                 onClick={() => {
                   localStorage.setItem("contactSubject", "Demande de projet");
                   window.dispatchEvent(new Event("update-subject-from-popup"));
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  window.location.href = "/contact";
                 }}
                 className="aws-btn"
               >
@@ -278,6 +189,12 @@ function App() {
               >
                 👀 Voir mes réalisations
               </button>
+            </div>
+            <div className=" mt-28 sm:hidden border-2 border-customBlue3/50 rounded-lg p-4 bg-customBlue3/90 ">
+              <p className="text-xl text-customBlue max-w-3xl mb-4 ">
+                Créons ensemble votre site internet ! Offrez à votre entreprise
+                une présence en ligne claire, moderne et efficace.
+              </p>
             </div>
           </div>
         </div>
@@ -438,163 +355,150 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-customBlue3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-6xl font-bold text-customBlue mb-4">
+      {/* Tarifs section */}
+      <section id="tarifs" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="text-center mb-4">
+            <h2 className="text-6xl font-bold text-customBlue2 mb-4">
               <ShinyText
-                text="Contact"
+                text="Découvrez mes tarifs"
                 disabled={false}
                 speed={4}
                 className="custom-class"
               />
             </h2>
-            <p className="text-xl text-customBlue">Discutons de votre projet</p>
+            <p className="text-xl text-customBlue">
+              Mes offres du moment comprenant pour chacune un accompagnement
+              personnalisé du début jusque la fin du projet!
+            </p>
           </div>
-          <div className="max-w-3xl mx-auto">
-            {submitStatus && (
-              <div
-                className={`mb-6 p-4 rounded-lg ${
-                  submitStatus.success
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
-                }`}
-              >
-                {submitStatus.message}
-              </div>
-            )}
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Nom"
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Email"
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
-                />
-              </div>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className="border rounded px-4 py-3 w-full"
-                placeholder="Sujet"
-                required
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Message"
-                required
-                rows={6}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-customBlue2 focus:border-transparent"
-              ></textarea>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="aws-btn w-full"
-              >
-                {isSubmitting ? "Envoi en cours..." : "Envoyer  "}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 mt-10 justify-items-center mx-auto">
+            <Tarifs
+              title="Landing page"
+              description="Parfait pour présenter votre activité en une seule page impactante"
+              price="300"
+              features={[
+                {
+                  name: "Design sur mesure",
+                  answer: "Une page unique qui représente votre identité.",
+                },
+                {
+                  name: "Responsive mobile",
+                  answer:
+                    "Adapté à tous les écrans (mobile, tablette, desktop).",
+                },
+
+                {
+                  name: "Hébergement 1 an",
+                  answer: "Hébergement premium inclus pendant 1 an.",
+                },
+                {
+                  name: "Nom de domaine offert",
+                  answer: "Votre nom de domaine offert la première année.",
+                },
+                {
+                  name: "Référencement SEO",
+                  answer: "Optimisation pour les moteurs de recherche incluse.",
+                },
+              ]}
+            />
+
+            <Tarifs
+              title="Site vitrine complet"
+              description="Site multi-pages pour présenter en détail vos services et produits"
+              price="800"
+              features={[
+                {
+                  name: "3 à 5 pages personnalisées",
+                  answer: "Accueil, Services, À propos, Contact, etc.",
+                },
+                {
+                  name: "Design professionnel",
+                  answer:
+                    "Interface moderne et attractive adaptée à votre image.",
+                },
+                {
+                  name: "SEO optimisé",
+                  answer: "Référencement naturel pour être visible sur Google.",
+                },
+                {
+                  name: "Animations & transitions",
+                  answer:
+                    "Effets visuels pour une expérience utilisateur fluide.",
+                },
+                {
+                  name: "Hébergement & domaine",
+                  answer:
+                    "Tout compris : hébergement 1 an + nom de domaine offert.",
+                },
+                {
+                  name: "Support 6 mois",
+                  answer: "Assistance et mises à jour pendant 6 mois.",
+                },
+              ]}
+            />
+
+            <Tarifs
+              title="Site e-commerce"
+              description="Boutique en ligne complète pour vendre vos produits 24h/24"
+              price="1200"
+              features={[
+                {
+                  name: "Gestion produits",
+                  answer:
+                    "Ajoutez et gérez vos produits facilement depuis un panneau admin.",
+                },
+                {
+                  name: "Panier & paiement sécurisé",
+                  answer:
+                    "Intégration Stripe/PayPal pour des transactions sûres.",
+                },
+                {
+                  name: "Formation rapide à la plateforme",
+                  answer:
+                    "Vous permet d'apprendre à utiliser la plateforme rapidement( généralement 1h ).",
+                },
+                {
+                  name: "SEO e-commerce",
+                  answer:
+                    "Optimisation spécifique pour les boutiques en ligne.",
+                },
+                {
+                  name: "Design responsive",
+                  answer: "Expérience d'achat fluide sur tous les appareils.",
+                },
+                {
+                  name: "Hébergement & support",
+                  answer:
+                    "Hébergement 1 an + support technique prioritaire pendant 6 mois.",
+                },
+              ]}
+            />
+          </div>
+          <div className="flex justify-center items-center">
+            <div className="flex flex-col  mt-8 w-full max-w-4xl mx-auto"></div>
+          </div>
+          <div className="text-center mt-10">
+            <p className="text-customBlue">
+              *Les prix sont indicatifs et peuvent varier en fonction des
+              besoins du projet.
+            </p>
+          </div>
+          <div className="flex justify-center items-center mt-16">
+            <a href="/contact" target="_blank">
+              <button className="aws-btn">
+                <p className="text-white">
+                  Contactez-moi pour plus d'informations
+                </p>
               </button>
-            </form>
+            </a>
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="bg-customBlue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid text-center md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contact</h3>
-              <p className="text-customBlue3">
-                <a
-                  href="mailto:antony.auvray@hotmail.com"
-                  className="text-customBlue3 hover:text-white  text-bottom"
-                >
-                  antony.auvray@hotmail.com
-                  <img
-                    src="mail.png"
-                    alt="Email"
-                    className="w-8 h-8 ml-4 inline-block"
-                  />{" "}
-                </a>
-                <br />
-                <br />
-                <a className="mt-2" href="https://wa.me/33658092835">
-                  Envoyer un message WhatsApp{" "}
-                  <img
-                    src="whatsapp2.png"
-                    alt="whatsapp"
-                    className="w-10 h-10 inline-block"
-                  />
-                </a>
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Portfolio</h3>
-              <p className="text-customBlue3">
-                Création de solutions digitales sur mesure pour votre succès en
-                ligne.
-              </p>
-              <p className="text-customBlue3">
-                Accompagnement personnalisé pour embellir votre projet.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Suivez-moi</h3>
-              <div className="flex justify-center space-x-4">
-                <a
-                  href="https://www.linkedin.com/in/antony-auvray-669bb6353/"
-                  className="text-customBlue3 hover:text-white "
-                >
-                  <img
-                    src="linkedin.png"
-                    alt="LinkedIn"
-                    className="w-[120px] h-[50px] rounded-md mx-auto"
-                  />
-                </a>
-                <a
-                  href="https://www.facebook.com/tonywebdev"
-                  className="text-customBlue3 hover:text-white "
-                >
-                  <img
-                    src="facebook.png"
-                    alt="Facebook"
-                    className="w-[60px] h-[50px] "
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-customBlue3">
-            <p>&copy; 2025 TonyWebDev. Tous droits réservés.</p>
-            <div className="mt-4 flex justify-center space-x-6">
-              <a
-                href="/mentions-legales"
-                className="text-gray-400 hover:text-white transition"
-              >
-                Mentions Légales
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Chatbot />
+      {/* <FaqPopup /> */}
+      <Footer />
     </div>
   );
 
