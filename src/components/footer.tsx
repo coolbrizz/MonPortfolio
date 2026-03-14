@@ -170,7 +170,7 @@ function Footer() {
                       `}</style>
                   </a>
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[#3b5998] text-white text-sm px-2 py-1 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:-bottom-12 transition-all duration-300 ease-in-out">
-                    Facebook
+                    LinkedIn
                   </div>
                 </li>
               </ul>

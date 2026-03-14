@@ -372,7 +372,7 @@ function App() {
               personnalisé du début jusque la fin du projet!
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 mt-10 justify-items-center mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-1 mt-10 justify-items-center mx-auto">
             <Tarifs
               title="Landing page"
               description="Parfait pour présenter votre activité en une seule page impactante"
@@ -438,42 +438,6 @@ function App() {
               ]}
             />
 
-            <Tarifs
-              title="Site e-commerce"
-              description="Boutique en ligne complète pour vendre vos produits 24h/24"
-              price="1200"
-              features={[
-                {
-                  name: "Gestion produits",
-                  answer:
-                    "Ajoutez et gérez vos produits facilement depuis un panneau admin.",
-                },
-                {
-                  name: "Panier & paiement sécurisé",
-                  answer:
-                    "Intégration Stripe/PayPal pour des transactions sûres.",
-                },
-                {
-                  name: "Formation rapide à la plateforme",
-                  answer:
-                    "Vous permet d'apprendre à utiliser la plateforme rapidement( généralement 1h ).",
-                },
-                {
-                  name: "SEO e-commerce",
-                  answer:
-                    "Optimisation spécifique pour les boutiques en ligne.",
-                },
-                {
-                  name: "Design responsive",
-                  answer: "Expérience d'achat fluide sur tous les appareils.",
-                },
-                {
-                  name: "Hébergement & support",
-                  answer:
-                    "Hébergement 1 an + support technique prioritaire pendant 6 mois.",
-                },
-              ]}
-            />
           </div>
           <div className="flex justify-center items-center">
             <div className="flex flex-col  mt-8 w-full max-w-4xl mx-auto"></div>

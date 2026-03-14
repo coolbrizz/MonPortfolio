@@ -2,3 +2,8 @@ Construire le projet (génération des fichiers statiques) : npm run build Ajout
 les fichiers générés au dépôt : git add . git commit -m "Mise à jour du site"
 git push origin main si utilisé déploiement avec : npm run deploy
 transférer avec filezilla le fichier dist
+
+clé api = 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
+
+clé client wordpress= ck_da2ba250e3a81b48af5a1241e1009a99f07ad7b6
+secret client wordpress = cs_2adf72f9db2f7337b459fbd82c9111958a54654a

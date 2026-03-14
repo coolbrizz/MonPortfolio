@@ -11,7 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   // Référence pour scroller automatiquement vers le bas
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
 
   const faqSuggestions = [
     "Quel est le prix d'un site vitrine ?",
@@ -30,7 +30,7 @@ function App() {
   }, [messages]);
 
   // Fonction modifiée pour accepter un texte optionnel (textOverride)
-  const sendMessage = async (textOverride: string | null = null) => {
+  const sendMessage = async (textOverride = null) => {
     const textToSend = textOverride || input;
 
     if (!textToSend.trim()) return;
