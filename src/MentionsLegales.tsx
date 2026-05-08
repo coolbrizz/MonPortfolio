@@ -52,13 +52,11 @@ function MentionsLegales() {
               2. Hébergement
             </h2>
             <p className="mb-4">
-              Ce site est hébergé par IONOS, dont le siège social est situé 7
-              Place de la Gare, 57200 Sarreguemines, France.
+              Ce site est hébergé par hostingers, dont le siège social est situé
+              61 Lordou Vironos Street, 6023 Larnaca, Chypre
             </p>
             <p className="mb-4">
-              <strong>Téléphone :</strong>0970 808 911
-              <br />
-              <strong>Site Web:</strong> www.ionos.fr
+              <strong>Site Web:</strong> https://www.hostinger.com/fr
             </p>
           </section>
 

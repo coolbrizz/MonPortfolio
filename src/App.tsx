@@ -4,7 +4,7 @@ import { useState } from "react";
 import Tarifs from "./tarifs";
 import Footer from "./components/footer";
 // import FaqPopup from "./Faq";
-import Chatbot from "./chatbot";
+// import Chatbot from "./chatbot";
 // import Popup from "./components/Popup";
 
 interface ServiceCardProps {
@@ -351,6 +351,12 @@ function App() {
                 category="Site vitrine"
                 website="https://nailsiana.com/"
               />
+              <PortfolioCard
+                image="plus2vape.webp"
+                title="Boutique de e-cigarette"
+                category="Site vitrine"
+                website="https://plus2vape.com/"
+              />
             </div>
           </div>
         </div>
@@ -437,7 +443,6 @@ function App() {
                 },
               ]}
             />
-
           </div>
           <div className="flex justify-center items-center">
             <div className="flex flex-col  mt-8 w-full max-w-4xl mx-auto"></div>
@@ -460,7 +465,7 @@ function App() {
         </div>
       </section>
       {/* Footer */}
-      <Chatbot />
+      {/* <Chatbot /> */}
       {/* <FaqPopup /> */}
       <Footer />
     </div>

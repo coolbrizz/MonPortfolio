@@ -5,7 +5,7 @@ import App from "./App";
 import MentionsLegales from "./MentionsLegales";
 import NotFound from "./404";
 import "./index.css";
-import Boutique from "./boutique";
+import Contact from "./contact";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
@@ -19,7 +19,7 @@ root.render(
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/boutique" element={<Boutique />} />
+        <Route path="/contact" element={<Contact/>} />
       </Routes>
     </Router>
   </React.StrictMode>
